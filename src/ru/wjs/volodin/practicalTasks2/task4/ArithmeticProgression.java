@@ -1,41 +1,54 @@
 package ru.wjs.volodin.practicalTasks2.task4;
 
+import java.util.Scanner;
+
 public class ArithmeticProgression {
     public static void main(String[] args) {
-        ArithmeticProgression arithmeticProgression = new ArithmeticProgression(3, 4, 5);
-        arithmeticProgression.sumProgression(arithmeticProgression);
+        ArithmeticProgression arithmeticProgression = new ArithmeticProgression();
+        arithmeticProgression.setArguments();
+        arithmeticProgression.sumProgression();
         System.out.println(arithmeticProgression.getSum());
     }
 
     private int firstElement;
     private int difference;
     private int n;
-    private int sum;
+    private long sum;
 
-    public ArithmeticProgression(int firstElement, int difference, int n) {
-        this.firstElement = firstElement;
-        this.difference = difference;
-        this.n = n;
+    public void setArguments() {
+        Scanner console = new Scanner(System.in);
+        String error ="Введите целые числа из [-10000;10000]";
+        try {
+            int inputFirstElement = console.nextInt();
+            int inputDifference = console.nextInt();
+            int inputN = console.nextInt();
+            if (checkInterval(inputFirstElement, inputDifference, inputN)) {
+                firstElement = inputFirstElement;
+                difference = inputDifference;
+                n = inputN;
+            } else {
+                System.out.println(error);
+            }
+        } catch (java.util.InputMismatchException exception) {
+            System.out.println(error);
+        }
     }
 
-    public int sumProgression(ArithmeticProgression arithmeticProgression) {
-        if (arithmeticProgression.checkInterval()) { // здесь происходит проверка на вхождение аргументов в интервал
-            sum = this.firstElement;
-            for (int i = 1; i < n; i++) {
-                firstElement += difference;
-                sum += firstElement;
-            }
-            return sum;
-        } else {
-            System.out.println("Аргументы прогрессии должны входить в [-10000;10000]");
+
+    public long sumProgression() {
+        sum = this.firstElement;
+        int tempElement = firstElement;
+        for (int i = 1; i < n; i++) {
+            tempElement += difference;
+            sum += tempElement;
         }
         return sum;
     }
 
-    public boolean checkInterval() {
-        if (this.firstElement <= 10000 & this.firstElement >= -10000) {
-            if (this.difference <= 10000 & this.difference >= -10000) {
-                if (this.n <= 10000 & this.n >= -10000) {
+    public boolean checkInterval(int inputFirstElement, int inputDifference, int inputN) {
+        if (inputFirstElement <= 10000 & inputFirstElement >= -10000) {
+            if (inputDifference <= 10000 & inputDifference >= -10000) {
+                if (inputN <= 10000 & inputN >= -10000) {
                     return true;
                 }
             }
@@ -43,7 +56,7 @@ public class ArithmeticProgression {
         return false;
     }
 
-    public int getSum() {
+    public long getSum() {
         return sum;
     }
 }
