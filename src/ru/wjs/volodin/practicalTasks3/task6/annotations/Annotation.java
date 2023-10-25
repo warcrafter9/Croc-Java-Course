@@ -1,6 +1,6 @@
-package ru.wjs.volodin.praticalTasks3.task6.annotations;
+package ru.wjs.volodin.practicalTasks3.task6.annotations;
 
-import ru.wjs.volodin.praticalTasks3.task6.figures.Figure;
+import ru.wjs.volodin.practicalTasks3.task6.figures.Figure;
 
 public class Annotation {
     private String label;

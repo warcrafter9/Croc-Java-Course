@@ -1,6 +1,6 @@
-package ru.wjs.volodin.praticalTasks3.task6.figures;
+package ru.wjs.volodin.practicalTasks3.task6.figures;
 
-import ru.wjs.volodin.praticalTasks3.task6.Point;
+import ru.wjs.volodin.practicalTasks3.task6.Point;
 
 public class Rectangle extends Figure {
    private Point firstPoint;

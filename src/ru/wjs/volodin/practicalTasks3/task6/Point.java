@@ -1,4 +1,4 @@
-package ru.wjs.volodin.praticalTasks3.task6;
+package ru.wjs.volodin.practicalTasks3.task6;
 
 public class Point {
     private int x;

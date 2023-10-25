@@ -1,8 +1,8 @@
-package ru.wjs.volodin.praticalTasks3.task6.annotations;
+package ru.wjs.volodin.practicalTasks3.task6.annotations;
 
-import ru.wjs.volodin.praticalTasks3.task6.Point;
-import ru.wjs.volodin.praticalTasks3.task6.figures.Circle;
-import ru.wjs.volodin.praticalTasks3.task6.figures.Rectangle;
+import ru.wjs.volodin.practicalTasks3.task6.Point;
+import ru.wjs.volodin.practicalTasks3.task6.figures.Circle;
+import ru.wjs.volodin.practicalTasks3.task6.figures.Rectangle;
 
 public class AnnotatedImage {
     private final String imagePath;

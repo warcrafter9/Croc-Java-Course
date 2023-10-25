@@ -1,8 +1,8 @@
-package ru.wjs.volodin.praticalTasks3.task6;
+package ru.wjs.volodin.practicalTasks3.task6;
 
-import ru.wjs.volodin.praticalTasks3.task6.annotations.Annotation;
-import ru.wjs.volodin.praticalTasks3.task6.figures.Circle;
-import ru.wjs.volodin.praticalTasks3.task6.figures.Rectangle;
+import ru.wjs.volodin.practicalTasks3.task6.annotations.Annotation;
+import ru.wjs.volodin.practicalTasks3.task6.figures.Circle;
+import ru.wjs.volodin.practicalTasks3.task6.figures.Rectangle;
 
 public class Main {
     public static void main(String[] args) {
