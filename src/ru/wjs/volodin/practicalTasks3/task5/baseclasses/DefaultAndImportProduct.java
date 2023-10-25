@@ -5,7 +5,7 @@ import ru.wjs.volodin.practicalTasks3.task5.baseclasses.DefaultProduct;
 public abstract class DefaultAndImportProduct extends DefaultProduct {
     private String countryOfOrigin;
     private boolean hasWarranty;
-    protected static int count;
+     private static int count;
 
 
     public DefaultAndImportProduct(int price, String description, int length, int width, int height, String color, String countryOfOrigin, boolean hasWarranty) {
