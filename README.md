@@ -1,3 +1,3 @@
 # Croc-Java-Course
-Valery Volodin 
+Valery Volodin || 
 telegram: sorcerer_hunter
