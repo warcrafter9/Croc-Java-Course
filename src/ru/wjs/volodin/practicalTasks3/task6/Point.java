@@ -20,7 +20,7 @@ public class Point {
             return false;
         }else{
             Point point = (Point) obj;
-            if(this.x==point.x &&this.y == point.y){
+            if(this.x==point.x && this.y == point.y){
                 return true;
             }
         }

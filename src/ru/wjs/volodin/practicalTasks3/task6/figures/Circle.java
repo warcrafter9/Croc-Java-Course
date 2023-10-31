@@ -14,8 +14,8 @@ public class Circle extends Figure {
 
     @Override
     public void move(int dx, int dy) {
-        this.center.setX(center.getX()+dx);// Не знаю, возможно ли это читать, но лучше вызывать через метод getCenter() или переменной?
-        this.center.setY(getCenter().getY()+dy); // Вот такой. В целом, мы же все равно в этом классе, т.е. без разницы?
+        this.center.setX(center.getX()+dx);
+        this.center.setY(center.getY()+dy);
     }
 
     @Override
@@ -31,11 +31,6 @@ public class Circle extends Figure {
     }
 
     public String toString() {
-        return upgradeToString();
-    }
-
-
-    private String upgradeToString() {
         return String.format("Circle %s, r = %d", center.coordinatesToString(), radius);
     }
 

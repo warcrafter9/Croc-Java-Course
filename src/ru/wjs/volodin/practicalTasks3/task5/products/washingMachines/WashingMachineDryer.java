@@ -1,4 +1,4 @@
-package ru.wjs.volodin.practicalTasks3.task5.washingMachines;
+package ru.wjs.volodin.practicalTasks3.task5.products.washingMachines;
 
 public class WashingMachineDryer extends WashingMachine{
     private int capacityForDrying; // загрузка для сушки(кг)
@@ -14,7 +14,7 @@ public class WashingMachineDryer extends WashingMachine{
         return upgradeToString();
     }
     private String upgradeToString(){
-        return super.toString()+String.format("Загрузка белья для сушки: %d",getCapacityForDrying());
+        return super.toString()+String.format("Загрузка белья для сушки: %d кг",getCapacityForDrying());
     }
 
     public int getCapacityForDrying() {

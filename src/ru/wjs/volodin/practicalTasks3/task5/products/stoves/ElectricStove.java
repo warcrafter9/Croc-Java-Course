@@ -1,4 +1,4 @@
-package ru.wjs.volodin.practicalTasks3.task5.stoves;
+package ru.wjs.volodin.practicalTasks3.task5.products.stoves;
 
 public class ElectricStove extends Stove{
  private String typeOfHeatingElement;
@@ -14,7 +14,7 @@ public class ElectricStove extends Stove{
         return upgradeToString();
     }
     private String upgradeToString(){
-        return super.toString() + String.format("Тип нагревательного элемента: %s",getTypeOfHeatingElement());
+        return super.toString() + String.format("Тип нагревательного элемента: %s \n",getTypeOfHeatingElement());
     }
 
     public String getTypeOfHeatingElement() {

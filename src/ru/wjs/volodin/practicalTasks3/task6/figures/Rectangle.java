@@ -12,9 +12,6 @@ public class Rectangle extends Figure {
 
     @Override
     public String toString() {
-        return upgradeToString();
-    }
-    private String upgradeToString(){
         return String.format("Rectangle %s, %s",firstPoint.coordinatesToString(),secondPoint.coordinatesToString());
     }
     @Override
@@ -27,8 +24,8 @@ public class Rectangle extends Figure {
 
     @Override
     public boolean containsPoint(Point pointToCheck){
-        if(pointToCheck.getX() >= getFirstPoint().getX() && pointToCheck.getX()<= getSecondPoint().getX()){
-            if(pointToCheck.getY() >= getFirstPoint().getY() && pointToCheck.getY() <= getSecondPoint().getY()){
+        if(pointToCheck.getX() >= firstPoint.getX() && pointToCheck.getX()<= secondPoint.getX()){
+            if(pointToCheck.getY() >= firstPoint.getY() && pointToCheck.getY() <= secondPoint.getY()){
                 return true;
             }
         }

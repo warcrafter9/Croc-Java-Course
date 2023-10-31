@@ -5,16 +5,10 @@ import ru.wjs.volodin.practicalTasks3.task6.figures.Figure;
 public class Annotation {
     private String label;
     private Figure figure;
-    private static int count;
-
 
     public Annotation(Figure figure, String label) {
         this.figure = figure;
         this.label = label;
-    }
-
-    public static int getCount() {
-        return count;
     }
 
     @Override

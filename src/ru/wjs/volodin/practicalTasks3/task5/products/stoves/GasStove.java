@@ -1,4 +1,4 @@
-package ru.wjs.volodin.practicalTasks3.task5.stoves;
+package ru.wjs.volodin.practicalTasks3.task5.products.stoves;
 
 public class GasStove extends Stove {
     private boolean hasGasControlOfBurners; //наличие газ-контроля конфорок

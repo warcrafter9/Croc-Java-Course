@@ -1,9 +1,8 @@
-package ru.wjs.volodin.practicalTasks3.task5.refrigerators;
+package ru.wjs.volodin.practicalTasks3.task5.products.refrigerators;
+import ru.wjs.volodin.practicalTasks3.task5.baseclasses.Product;
 
-import ru.wjs.volodin.practicalTasks3.task5.baseclasses.DefaultAndImportProduct;
 
-
-public class Fridge extends DefaultAndImportProduct {
+public class Fridge extends Product {
 
     private int tempOfRefrigeratingChamberMin;
     private int tempOfRefrigeratingChamberMax;

@@ -1,8 +1,9 @@
-package ru.wjs.volodin.practicalTasks3.task5.stoves;
+package ru.wjs.volodin.practicalTasks3.task5.products.stoves;
 
-import ru.wjs.volodin.practicalTasks3.task5.baseclasses.DefaultAndImportProduct;
 
-public abstract class Stove extends DefaultAndImportProduct {
+import ru.wjs.volodin.practicalTasks3.task5.baseclasses.Product;
+
+public abstract class Stove extends Product {
     private int numberOfBurners;//количество конфорок
     private boolean hasOven; // наличие духовки
 

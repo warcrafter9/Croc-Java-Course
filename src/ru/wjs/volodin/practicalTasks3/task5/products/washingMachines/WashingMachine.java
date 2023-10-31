@@ -1,8 +1,8 @@
-package ru.wjs.volodin.practicalTasks3.task5.washingMachines;
+package ru.wjs.volodin.practicalTasks3.task5.products.washingMachines;
 
-import ru.wjs.volodin.practicalTasks3.task5.baseclasses.DefaultAndImportProduct;
+import ru.wjs.volodin.practicalTasks3.task5.baseclasses.Product;
 
-public class WashingMachine extends DefaultAndImportProduct {
+public class WashingMachine extends Product {
 
      private int capacityForWashing; // загрузка для стирки(кг)
 
@@ -17,7 +17,7 @@ public class WashingMachine extends DefaultAndImportProduct {
         return upgradeToString();
     }
     private String upgradeToString(){
-        return super.toString() + String.format("Загрузка белья для стирки: %d;\n",getCapacityForWashing());
+        return super.toString() + String.format("Загрузка белья для стирки: %d кг;\n",getCapacityForWashing());
     }
 
     public int getCapacityForWashing() {

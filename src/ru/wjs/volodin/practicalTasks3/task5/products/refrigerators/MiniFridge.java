@@ -1,4 +1,4 @@
-package ru.wjs.volodin.practicalTasks3.task5.refrigerators;
+package ru.wjs.volodin.practicalTasks3.task5.products.refrigerators;
 
 public class MiniFridge extends Fridge{
 

@@ -1,22 +1,26 @@
 package ru.wjs.volodin.practicalTasks3.task5.baseclasses;
 
-public abstract class DefaultProduct { // Бытовые товары
+public abstract class Product { // Бытовые товары
     private int price;
     private String description;
     private int length;
     private int width;
     private int height;
     private String color;
+    private String countryOfOrigin;
+    private boolean hasWarranty;
 
 
-    public DefaultProduct(int price, String description, int length, int width,
-                          int height, String color) {
+    public Product(int price, String description, int length, int width,
+                   int height, String color, String countryOfOrigin, boolean hasWarranty) {
         this.price = price;
         this.description = description;
         this.length = length;
         this.width = width;
         this.height = height;
         this.color = color;
+        this.countryOfOrigin =countryOfOrigin;
+        this.hasWarranty=hasWarranty;
     }
 
     @Override
@@ -73,6 +77,19 @@ public abstract class DefaultProduct { // Бытовые товары
     public void setColor(String color) {
         this.color = color;
     }
+    public String getCountryOfOrigin() {
+        return countryOfOrigin;
+    }
 
+    public void setCountryOfOrigin(String countryOfOrigin) {
+        this.countryOfOrigin = countryOfOrigin;
+    }
+
+    public boolean isHasWarranty() {
+        return hasWarranty;
+    }
+    public void setHasWarranty(boolean hasWarranty) {
+        this.hasWarranty = hasWarranty;
+    }
 }
 

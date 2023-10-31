@@ -1,18 +1,15 @@
 package ru.wjs.volodin.practicalTasks3.task5;
 
-import ru.wjs.volodin.practicalTasks3.task5.baseclasses.DefaultAndImportProduct;
+
+import ru.wjs.volodin.practicalTasks3.task5.baseclasses.Product;
 
 public class Catalog {
-    public static DefaultAndImportProduct[] productToCatalog(DefaultAndImportProduct... products) {
-        DefaultAndImportProduct[] catalog = new DefaultAndImportProduct[DefaultAndImportProduct.getCount()];
-        for (int i = 0; i < catalog.length; i++) {
-            catalog[i] = products[i];
-        }
-        return catalog;
+    public static Product[] productToCatalog(Product... products) {
+        return products;
     }
 
-    public static void printCatalog(DefaultAndImportProduct[] catalog) {
-        for(DefaultAndImportProduct product: catalog){
+    public static void printCatalog(Product[] catalog) {
+        for(Product product: catalog){
             System.out.println(product);
             System.out.println();
         }
