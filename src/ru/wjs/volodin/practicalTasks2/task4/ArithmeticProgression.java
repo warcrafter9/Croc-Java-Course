@@ -5,9 +5,12 @@ import java.util.Scanner;
 public class ArithmeticProgression {
     public static void main(String[] args) {
         ArithmeticProgression arithmeticProgression = new ArithmeticProgression();
-        arithmeticProgression.setArguments();
-        arithmeticProgression.sumProgression();
-        System.out.println(arithmeticProgression.getSum());
+        arithmeticProgression.setArguments();  //установили значения
+        arithmeticProgression.sumProgression(); //посчитали сумму
+        System.out.println(arithmeticProgression.getSum()); // вывели сумму из инстанса класса
+        arithmeticProgression.setArguments();   //установили классу новые значения
+        System.out.println(arithmeticProgression.getSum()); //вывели сумму из инстанса класса 🥲
+
     }
 
     private int firstElement;
