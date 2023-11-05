@@ -1,23 +1,10 @@
 package ru.wjs.volodin.practicaltask4.task7;
-
 import org.junit.Assert;
 import org.junit.Test;
-import ru.wjs.volodin.practicalTasks3.task5.Catalog;
-import ru.wjs.volodin.practicalTasks3.task5.baseclasses.Product;
-import ru.wjs.volodin.practicalTasks3.task5.importedproducts.importedrefrigerators.ImportFridge;
-import ru.wjs.volodin.practicalTasks3.task5.importedproducts.importedrefrigerators.ImportFridgeWithFreezingChamber;
-import ru.wjs.volodin.practicalTasks3.task5.importedproducts.importedstoves.ImportElecticStove;
-import ru.wjs.volodin.practicalTasks3.task5.importedproducts.importedwashingmachines.ImportWashingMachine;
 import ru.wjs.volodin.practicalTasks3.task5.products.refrigerators.Fridge;
-import ru.wjs.volodin.practicalTasks3.task5.products.refrigerators.MiniFridge;
-import ru.wjs.volodin.practicalTasks3.task5.products.stoves.ElectricStove;
-import ru.wjs.volodin.practicalTasks3.task5.products.stoves.GasStove;
-import ru.wjs.volodin.practicalTasks3.task5.products.washingMachines.WashingMachine;
-import ru.wjs.volodin.practicalTasks3.task5.products.washingMachines.WashingMachineDryer;
 import ru.wjs.volodin.practicaltasks4.task7.Order;
 import ru.wjs.volodin.practicaltasks4.task7.OrderExpirationException;
 import ru.wjs.volodin.practicaltasks4.task7.OrderStatus;
-
 import java.time.LocalDateTime;
 
 import static org.junit.Assert.*;
