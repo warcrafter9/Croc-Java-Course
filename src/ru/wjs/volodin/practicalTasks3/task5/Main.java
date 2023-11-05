@@ -12,11 +12,14 @@ import ru.wjs.volodin.practicalTasks3.task5.products.washingMachines.WashingMach
 import ru.wjs.volodin.practicalTasks3.task5.products.washingMachines.WashingMachineDryer;
 
 
-public class Main {
-    public static void main(String[] args) {
-        Product[] newCatalog;
 
-       Fridge fridge=new Fridge(80_000,"Холодильник...",65,32,70,"Черный",
+public class Main {
+    public static Product[] fridges;
+    public static Product[] stoves;
+    public static Product[] washingMachines;
+    public static void main(String[] args) {
+
+        Fridge fridge=new Fridge(80_000,"Холодильник...",65,32,70,"Черный",
                 "Россия", true, 0, 8);
         ImportFridge fridgeImport=new ImportFridge(80_000,"Холодильник...",65,32,70,"Черный",
                 "США", true, 0, 8);
@@ -25,8 +28,8 @@ public class Main {
                 "Холодильник с морозилкой", 65,32,80, "Белый","Франция",true,
                 0,8,-10);
 
-         MiniFridge miniFridge=new MiniFridge(15_000,"Мини-холодильник",15,20,20,"Белый",
-                 "Россия",false, -15,0,8);
+        MiniFridge miniFridge=new MiniFridge(15_000,"Мини-холодильник",15,20,20,"Белый",
+                "Россия",false, -15,0,8);
 
         WashingMachine washingMachine=new WashingMachine(50_000,"Стиральная машина",50,30,50,
                 "Белый", "Россия",true,8);
@@ -42,10 +45,9 @@ public class Main {
                 "Китай",true,4,true,"индукционный");
         GasStove gasStove=new GasStove(30_000,"Газ.плита",50,60,70,"Черный",
                 "Россия",true,4,true,true);
+         fridges = Catalog.productToCatalog(fridge,fridgeImport,fridgeWithFreezingChamber,miniFridge);
+         stoves = Catalog.productToCatalog(electricStove,electricStoveImport,gasStove);
+         washingMachines = Catalog.productToCatalog(washingMachine,washingMachineImport,washingMachineDryer);
 
-        newCatalog = Catalog.productToCatalog(fridge,fridgeImport,fridgeWithFreezingChamber,miniFridge,washingMachine,washingMachineImport,
-                washingMachineDryer,electricStove,electricStoveImport,gasStove);
-
-        Catalog.printCatalog(newCatalog);
     }
 }
