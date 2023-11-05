@@ -3,10 +3,23 @@ package ru.wjs.volodin.practicaltasks4.task7;
 import java.time.LocalDateTime;
 
 public interface OrderManagement {
-    boolean isReadyForPickup(); // проверка заказа на готовность к получению
-    void assembleOrder(); // сборка
+    /**
+     * Сборка товара.
+     * <p>
+     * Устанавливает статус COLLECTED.
+     */
+    void assembleOrder();
+    /**
+     * Выдача заказа.
+     * <p>
+     * Устанавливает статус CLOSED.
+     */
     void giveOrder();
-    String getOrderStatus();
+    OrderStatus getOrderStatus();
+
+    /**
+     * @return время сборки товара.
+     */
     LocalDateTime getOrderAssemblyDateTime(); // время сборки
 
 }
