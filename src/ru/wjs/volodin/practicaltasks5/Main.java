@@ -1,8 +1,5 @@
-package ru.wjs.volodin.practicaltask4.task7;
+package ru.wjs.volodin.practicaltasks5;
 
-import ru.wjs.volodin.practicaltasks5.BlackListFilterMasker;
-import ru.wjs.volodin.practicaltasks5.BlackListFilterUpgrade;
-import ru.wjs.volodin.practicaltasks5.BlackListFilterDeleter;
 
 import java.util.*;
 
@@ -27,6 +24,7 @@ public class Main {
         blackListToDelete.add("фигня");
         blackListToMask.add("плохое");
         blackListToMaskUpgrade.add("растение");
+
 
         System.out.println("Для удаление: "+ commentsToDelete);
         System.out.println("Для маскировки звездочками: "+ commentsToMask);
