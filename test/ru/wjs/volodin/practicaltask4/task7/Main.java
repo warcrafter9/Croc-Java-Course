@@ -19,7 +19,7 @@ public class Main {
         commentsToMask.add("Плохое, слово");
         commentsToMask.add("Хорошее слово");
         commentsToMaskUpgrade.add("Розетка");
-        commentsToMaskUpgrade.add("РастенЬе; высокое");
+        commentsToMaskUpgrade.add("РастенЬе; зеленое");
 
         Set<String> blackListToDelete = new TreeSet<>();
         Set<String> blackListToMask = new TreeSet<>();
