@@ -98,6 +98,7 @@ public class Order implements OrderManagement, OrderChecker {
     @Override
     public void giveOrder() {
         orderStatus = OrderStatus.CLOSED;
+        dateTimeOrderDelivery = LocalDateTime.now();
     }
 
     @Override
