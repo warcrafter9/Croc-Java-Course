@@ -9,21 +9,26 @@ public class BlackListFilterMasker implements BlackListFilter {
     @Override
     public void filterComments(List<String> comments, Set<String> blackList) {
         List<String> filteredComments = new ArrayList<>();
-        for(String comment: comments){
-            StringBuilder maskedComment=new StringBuilder(comment);
-            for(String word: comment.split("[;,\n  ]+")){
-                if(blackList.contains(word.toLowerCase())){
-                    int firstIndex = maskedComment.indexOf(word);
-                    int lastIndex = firstIndex+word.length();
-                    for(int i=firstIndex;i<lastIndex;i++){
-                        maskedComment.setCharAt(i,'*');
+        for (String comment : comments) {
+            for (String word : comment.split("[;,\n  ]+")) {
+                for (String banWord : blackList) {
+                    if (banWord.equalsIgnoreCase(word)) {
+                        comment = comment.replaceAll(word, createMask(word));
                     }
                 }
             }
-                filteredComments.add(String.valueOf(maskedComment));
+            filteredComments.add(comment);
         }
         comments.clear();
         comments.addAll(filteredComments);
+    }
+
+    public static String createMask(String wordForMask) {
+        StringBuilder replacement = new StringBuilder();
+        for (int i = 0; i < wordForMask.length(); i++) {
+            replacement.append("*");
+        }
+        return replacement.toString();
     }
 }
 
