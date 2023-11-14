@@ -11,19 +11,19 @@ public class Main {
         List<String> commentsToDelete = new ArrayList<>();
         List<String> commentsToMask = new ArrayList<>();
         List<String> commentsToMaskUpgrade = new ArrayList<>();
-        commentsToDelete.add("Это фигня");
+        commentsToDelete.add("Это фигня"); // комментарий, удаляющийся из-за слова фигня
         commentsToDelete.add("А это нет");
-        commentsToMask.add("Плохое, слово");
+        commentsToMask.add("плохое, слово"); // "плохое" будет удалено (тут фильтр без опечатки)
         commentsToMask.add("Хорошее слово");
         commentsToMaskUpgrade.add("Розетка");
-        commentsToMaskUpgrade.add("РастенЬе; зеленое");
+        commentsToMaskUpgrade.add("РаСтенЬе; зеленое");  // комментарий с опечаткой в слове из БЛ - РаСтенЬе -> ********
 
         Set<String> blackListToDelete = new TreeSet<>();
         Set<String> blackListToMask = new TreeSet<>();
         Set<String> blackListToMaskUpgrade = new TreeSet<>();
-        blackListToDelete.add("фигня");
-        blackListToMask.add("плохое");
-        blackListToMaskUpgrade.add("растение");
+        blackListToDelete.add("Фигня"); // Слово для удаления
+        blackListToMask.add("ПлоХое"); // Слово для маскировки без опечатки
+        blackListToMaskUpgrade.add("Растение"); // Слово для маскировки с одной опечаткой (всё в независимости от регистра)
 
 
         System.out.println("Для удаление: "+ commentsToDelete);
