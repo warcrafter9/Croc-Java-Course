@@ -10,6 +10,9 @@ public class Dish implements Comparable<Dish> {
     private List<String> ingredients;
     private DishCategory category;
     private int royalRating;
+    /**
+     * Рейтинг блюда от придворных
+     */
     private int courtRating;
 
     public String getName() {
@@ -32,9 +35,6 @@ public class Dish implements Comparable<Dish> {
         return courtRating;
     }
 
-    /**
-     * Рейтинг блюда от придворных
-     */
 
     public Dish(String name, List<String> ingredients, DishCategory category, int royalRating, int courtRating) {
         this.name = name;
