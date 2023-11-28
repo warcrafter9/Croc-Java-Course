@@ -15,7 +15,6 @@ public class Main {
         Statement statement = dataBaseWorker.getConnection().createStatement();
         createTables(statement);
         importCSVData(statement,args[0]);
-
         org.h2.tools.Console.main("-web", "-browser"); // открывает бд в браузере(локально)
         dataBaseWorker.getConnection().close();
     }
