@@ -23,7 +23,10 @@ public class VeterinaryClinicImporter {
         try (BufferedReader reader = new BufferedReader(new FileReader(pathCSVFile))) {
 
             String str;
-            while ((str = reader.readLine()).isBlank()) {
+            while ((str = reader.readLine())!=null) {
+                if(str.isBlank()){
+                    continue;
+                }
                 ArrayList<String> arrayList = new ArrayList<>(Arrays.asList(str.split(",")));
                 insertToTable(statement, arrayList);
             }
