@@ -19,12 +19,12 @@ public class VeterinaryClinicImporter {
      *
      * @param pathCSVFile путь к файлу, который должен передаваться через параметры в командной строке
      */
-    public static void importCSVData(Statement statement, String pathCSVFile)   {
+    public static void importCSVData(Statement statement, String pathCSVFile) {
         try (BufferedReader reader = new BufferedReader(new FileReader(pathCSVFile))) {
 
             String str;
-            while ((str = reader.readLine())!=null) {
-                if(str.isBlank()){
+            while ((str = reader.readLine()) != null) {
+                if (str.isBlank()) {
                     continue;
                 }
                 ArrayList<String> arrayList = new ArrayList<>(Arrays.asList(str.split(",")));
@@ -40,7 +40,7 @@ public class VeterinaryClinicImporter {
      * Метод, вставляющий список слов в таблицы
      * @param list список слов в строке, разделенных запятыми.
      */
-    private static void insertToTable(Statement statement, ArrayList<String> list)  {
+    private static void insertToTable(Statement statement, ArrayList<String> list) {
         String insertingClientsStr = "INSERT INTO clients (CLIENT_ID,SURNAME,name,phone_number) "
                 + String.format("VALUES ('%d','%s','%s','%s')", Integer.parseInt(list.get(0)), list.get(1), list.get(2), list.get(3));
         String insertingPetsStr = "INSERT INTO pets (client_id,medcard_id,name_pet,age_pet) " +
@@ -52,7 +52,7 @@ public class VeterinaryClinicImporter {
             if (checkNotExistPrimaryKey(statement, "PETS", "MEDCARD_ID", list.get(4))) {
                 statement.execute(insertingPetsStr);
             }
-        }catch (SQLException e){
+        } catch (SQLException e) {
             throw new DataBaseConnectionException("Проверьте наличие колонок в таблицах CLIENTS и PETS.");
         }
 
@@ -60,12 +60,13 @@ public class VeterinaryClinicImporter {
 
     /**
      * Метод, проверяющий существование записи с определенным primary key
-     * @param table таблица, в которой происходит проверка
+     *
+     * @param table      таблица, в которой происходит проверка
      * @param primaryKey значение ключа
-     * @param column колонка primary key
+     * @param column     колонка primary key
      * @return true, если клиент/питомец с таким primary key ещё не существует.
      */
-    private static boolean checkNotExistPrimaryKey(Statement statement, String table, String column, String primaryKey) {
+    public static boolean checkNotExistPrimaryKey(Statement statement, String table, String column, String primaryKey) throws SQLException {
         String existSQL = String.format("SELECT COUNT(*) FROM %s WHERE %s = %s", table, column, primaryKey);
         try {
             ResultSet resultSet = statement.executeQuery(existSQL);
@@ -79,6 +80,7 @@ public class VeterinaryClinicImporter {
         return true;
     }
 
+
     public static void createTables(Statement statement) throws SQLException {
 
         String clientsTable = " create table IF NOT EXISTS clients(" +
@@ -87,7 +89,7 @@ public class VeterinaryClinicImporter {
                 "NAME varchar," +
                 "PHONE_NUMBER varchar)";
         String petsTable = "CREATE TABLE IF NOT EXISTS pets (" +
-                "MEDCARD_ID INTEGER NOT NULL, " +
+                "MEDCARD_ID INTEGER AUTO_INCREMENT, " +
                 "client_id INTEGER NOT NULL, " +
                 "name_pet VARCHAR(255), " +
                 "age_pet INTEGER, " +
