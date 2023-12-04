@@ -13,13 +13,16 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class VeterinaryClinicImporter {
+    private VeterinaryClinicImporter() {
+        // Конструктор задан только для того, чтобы экземпляр класса случайно не создали
+    }
 
     /**
      * Метод, позволяющий импортировать данные csv-файла в БД.
      *
      * @param pathCSVFile путь к файлу, который должен передаваться через параметры в командной строке
      */
-    public static void importCSVData(Statement statement, String pathCSVFile) {
+    public static void importCSVData(Statement statement, String pathCSVFile) throws SQLException {
         try (BufferedReader reader = new BufferedReader(new FileReader(pathCSVFile))) {
 
             String str;
@@ -38,25 +41,25 @@ public class VeterinaryClinicImporter {
 
     /**
      * Метод, вставляющий список слов в таблицы
+     *
      * @param list список слов в строке, разделенных запятыми.
      */
-    private static void insertToTable(Statement statement, ArrayList<String> list) {
+    private static void insertToTable(Statement statement, ArrayList<String> list) throws SQLException {
         String insertingClientsStr = "INSERT INTO clients (CLIENT_ID,SURNAME,name,phone_number) "
                 + String.format("VALUES ('%d','%s','%s','%s')", Integer.parseInt(list.get(0)), list.get(1), list.get(2), list.get(3));
-        String insertingPetsStr = "INSERT INTO pets (client_id,medcard_id,name_pet,age_pet) " +
-                String.format("VALUES (%d,'%d','%s','%s' )", Integer.parseInt(list.get(0)), Integer.parseInt(list.get(4)), list.get(5), list.get(6));
-        try {
-            if (checkNotExistPrimaryKey(statement, "CLIENTS", "CLIENT_ID", list.get(0))) {
-                statement.execute(insertingClientsStr);
-            }
-            if (checkNotExistPrimaryKey(statement, "PETS", "MEDCARD_ID", list.get(4))) {
-                statement.execute(insertingPetsStr);
-            }
-        } catch (SQLException e) {
-            throw new DataBaseConnectionException("Проверьте наличие колонок в таблицах CLIENTS и PETS.");
+        String insertingPetsStr = "INSERT INTO pets (medcard_id,name_pet,age_pet) " +
+                String.format("VALUES ('%d','%s','%s' )", Integer.parseInt(list.get(4)), list.get(5), list.get(6));
+        String insertingPetsClients = "insert into clients_pets(client_id,medcard_id)" +
+                String.format("values('%d','%d')", Integer.parseInt(list.get(0)), Integer.parseInt(list.get(4)));
+        if (checkNotExistPrimaryKey(statement, "CLIENTS", "CLIENT_ID", list.get(0))) {
+            statement.execute(insertingClientsStr);
         }
-
+        if (checkNotExistPrimaryKey(statement, "PETS", "MEDCARD_ID", list.get(4))) {
+            statement.execute(insertingPetsStr);
+        }
+        statement.execute(insertingPetsClients);
     }
+
 
     /**
      * Метод, проверяющий существование записи с определенным primary key
@@ -84,21 +87,23 @@ public class VeterinaryClinicImporter {
     public static void createTables(Statement statement) throws SQLException {
 
         String clientsTable = " create table IF NOT EXISTS clients(" +
-                "client_id integer primary key," +//AUTO_INCREMENT primary key
-                "SURNAME varchar," +
-                "NAME varchar," +
-                "PHONE_NUMBER varchar)";
+                "client_id integer primary key," +
+                "SURNAME varchar not null," +
+                "NAME varchar not null," +
+                "PHONE_NUMBER varchar not null)";
         String petsTable = "CREATE TABLE IF NOT EXISTS pets (" +
-                "MEDCARD_ID INTEGER AUTO_INCREMENT, " +
-                "client_id INTEGER NOT NULL, " +
-                "name_pet VARCHAR(255), " +
-                "age_pet INTEGER, " +
-                "PRIMARY KEY (medcard_id, client_id), " +
-                "FOREIGN KEY (client_id) REFERENCES clients(client_id)" +
-                ")";
+                "MEDCARD_ID INTEGER primary key AUTO_INCREMENT, " +
+                "name_pet VARCHAR(255) not null, " +
+                "age_pet INTEGER not null)";
+        String clientPetsTable = " create table  IF NOT EXISTS clients_pets(" +
+                "owner_id integer not null," +
+                "pet_id integer not null," +
+                "PRIMARY KEY (pet_id, owner_id)," +
+                "FOREIGN KEY (owner_id) REFERENCES clients(client_id)," +
+                "FOREIGN KEY (pet_id) REFERENCES pets(medcard_id))";
         statement.execute(clientsTable);
         statement.execute(petsTable);
-
+        statement.execute(clientPetsTable);
 
     }
 }
