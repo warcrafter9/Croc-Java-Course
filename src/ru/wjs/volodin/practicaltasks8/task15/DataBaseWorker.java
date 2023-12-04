@@ -7,13 +7,16 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DataBaseWorker {
-    private final static String URL = "jdbc:h2:~/test";
-    private final static String USER = "sa";
-    private final static String PASSWORD = "";
+    private final String url;
+    private final String user;
+    private final String password;
     private Connection connection;
-    public DataBaseWorker(){
+    public DataBaseWorker(String url,String user, String password){
+        this.url = url;
+        this.user = user;
+        this.password = password;
         try{
-             connection = DriverManager.getConnection(URL,USER,PASSWORD);
+             connection = DriverManager.getConnection(url,user,password);
         }catch (SQLException e){
             throw new DataBaseConnectionException("Не удалось соединиться с БД");
         }
