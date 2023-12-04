@@ -1,20 +1,29 @@
 package ru.wjs.volodin.practicaltasks8.task16.baseclasses;
 
 
+import java.util.ArrayList;
+import java.util.List;
 
 public class Pet {
 
     private Integer medcardId;
     private String name;
     private Integer age;
+    private List<Client> owners;
     public Pet(String name, Integer age,Integer medcardId) {
         this.medcardId =medcardId;
         this.name = name;
         this.age = age;
+        this.owners = new ArrayList<>();
     }
+
+    public List<Client> getOwners() {
+        return owners;
+    }
+
     @Override
     public String toString() {
-        return String.format("Питомец: medcardId:%d, имя: %s, возраст: %d",medcardId,name,age);
+        return String.format("<< Питомец: medcardId:%d, имя: %s, возраст: %d >> ",medcardId,name,age);
     }
 
     public Integer getMedcardId() {
@@ -28,26 +37,5 @@ public class Pet {
     public Integer getAge() {
         return age;
     }
-/*
-    public Pet createPet(String name, Integer age, List<Client> clients){
-        String sql= String.format("INSERT INTO PETS(name),VALUES(",);
-    }
-    public Pet findPet(Integer medcardId){
-
-    }
-    public Pet updatePet(Pet pet){
-
-    }
-    public void deletePet(){
-
-    }
-    public List<String> findClientPhoneNumbersBy(Pet pet){
-
-    }
-    public List<Pet> getAllPetsOf(Client client){
-
-    }
-
-     */
 
 }
